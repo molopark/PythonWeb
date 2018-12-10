@@ -2,13 +2,7 @@
 print('content-type: text/html; charset=utf-8')
 print()
 
-import cgi, os
-
-files = os.listdir('data')
-
-listStr = ''
-for item in files:
-    listStr = listStr + '<li><a href="index.py?id={name}">{name}</a></li>'.format(name=item)
+import cgi, view
 
 form = cgi.FieldStorage()
 if 'id' in form:
@@ -28,7 +22,7 @@ print(
 </head>
 <body>
   <h1><a href="index.py">WEB</a></h1>
-  <ol>{listStr}</ol>
+  {listStr}
   <a href="create.py">create</a>
   <form action="process_update.py" method="post">
     <input type="hidden" name="pageId" value="{form_default_title}"
@@ -38,5 +32,5 @@ print(
   </form>
 </body>
 </html>
-'''.format(title=pageId, desc=description, listStr=listStr, form_default_title=pageId, form_default_description=description)
+'''.format(title=pageId, desc=description, listStr=view.getList(), form_default_title=pageId, form_default_description=description)
 )

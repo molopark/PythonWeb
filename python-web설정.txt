@@ -30,6 +30,8 @@
 
 pkg 설치
 
+pip install html-sanitizer  #XSS
+
 pip install numpy scipy matplotlib scikit-learn
 
 ====================================================================
