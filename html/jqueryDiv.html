@@ -7,7 +7,7 @@
     <style>
       div {
           margin: -10px 0 0 -8px;
-          -- height: 100%;
+          height: 50px;
           width: 200px;
           background-color: #008800;
           color: #FFFFFF;
@@ -20,12 +20,20 @@
       $(document).ready(function() {
           $("div").slideDown('slow');
 
-          $("div").mouseenter(function(){
-            $("div").fadeTo('slow',0.0);
+          $("#div1").hover(function(){
+            $("#div1").addClass("red");
           });
 
-          $("div").mouseleave(function(){
-            $("div").fadeTo('slow',1);
+          $("#div2").mouseenter(function(){
+            $("#div2").fadeTo('slow',0.0);
+          });
+
+          $("#div2").mouseleave(function(){
+            $("#div2").fadeTo('slow',1);
+          });
+
+          $('#div3').click(function(){
+            $('#div3').fadeOut('fast',0.0);
           });
 
           $('button').click(function() {
@@ -42,13 +50,17 @@
     </script>
   </head>
   <body>
-    <div><strong>Hello world!</strong><br><br>Wow!</div>
+    <div id="div1"><strong>Hello world!</strong></div>
+    <br>
+    <div id="div2">Wow! Mouse enter...</div>
+    <br>
+    <div id="div3">Wow! CLICK ...</div>
     <br>
     <form>
       MESSAGE: <input type="text" name="message" placeholder="Type your text here!">
     </form>
     <button>Add!</button><br/>
-    <div id="messages"></div>
+    <span id="messages"></span>
   </body>
 </html>
 
